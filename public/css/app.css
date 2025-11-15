@@ -1,86 +1,126 @@
-/* estilos.css */
+:root {
+    --color-negro: #000000;
+    --color-oro: #FFD700;
+    --color-naranja: #FFA500;
+    --color-gris-oscuro: #111111;
+    --color-gris-fondo: #1a1a1a;
+    --color-texto-claro: #f8e473;
+}
 
 body {
-    background-color: #000000;
-    color: #FFD700; /* Amarillo dorado */
+    background-color: var(--color-negro);
+    color: var(--color-oro);
     font-family: 'Roboto', sans-serif;
     margin: 0;
-    padding: 0;
+    padding-top: 72px;
+    overflow-x: hidden;
 }
 
 h1, h2, h3, h4 {
     font-family: 'Playfair Display', serif;
+    color: var(--color-oro);
 }
 
-/* Navbar */
 .navbar {
-    background-color: #000000;
+    background-color: var(--color-negro);
+    border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s ease;
 }
 
 .navbar-brand, .nav-link {
-    color: #FFD700 !important;
-    font-weight: bold;
+    color: var(--color-oro) !important;
+    font-weight: 500;
 }
 
 .nav-link:hover {
-    color: #FFA500 !important;
+    color: var(--color-naranja) !important;
+    transform: scale(1.05);
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
 }
 
-/* Botón destacado "Haz tu voto" */
 .btn-voto {
-    background-color: #FFD700;
-    color: #000000;
+    background-color: var(--color-oro);
+    color: var(--color-negro) !important;
     font-weight: bold;
-    border: 2px solid #FFD700;
-    transition: transform 0.3s, box-shadow 0.3s;
+    border: 2px solid var(--color-oro);
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .btn-voto:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 0 15px #FFD700;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 25px var(--color-oro);
+    background-color: var(--color-naranja);
+    border-color: var(--color-naranja);
     text-decoration: none;
 }
 
-/* Secciones */
 section {
     padding: 100px 0;
 }
 
 .intro {
     text-align: center;
-    background: linear-gradient(to bottom, #111111, #000000);
+    background: linear-gradient(to bottom, var(--color-gris-oscuro) 10%, var(--color-negro) 100%);
+}
+
+.intro h1 {
+    letter-spacing: 5px;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.intro p {
+    font-family: 'Playfair Display', serif;
 }
 
 .quienes-somos {
-    background-color: #111111;
+    background-color: var(--color-gris-oscuro);
+    color: #cccccc;
+}
+
+.quienes-somos .blockquote-footer {
+    color: var(--color-oro);
 }
 
 .premios {
-    background-color: #1a1a1a;
+    background-color: var(--color-gris-fondo);
 }
 
-/* Cards de premios */
 .card {
-    background-color: #000000;
-    border: 2px solid #FFD700;
-    color: #FFD700;
-    transition: transform 0.3s, box-shadow 0.3s;
+    background-color: var(--color-negro);
+    border: 1px solid var(--color-oro);
+    color: var(--color-oro);
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+    border-radius: 10px;
 }
 
 .card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 0 20px #FFD700;
+    transform: translateY(-15px);
+    box-shadow: 0 15px 30px rgba(255, 215, 0, 0.5);
+    background-color: var(--color-gris-oscuro);
 }
 
 .card-title {
-    color: #FFD700;
+    color: var(--color-oro);
+    font-weight: 700;
 }
 
 .card-text {
-    color: #f8e473;
+    color: var(--color-texto-claro);
+    font-weight: 300;
 }
 
-/* Enlaces generales */
+.card i {
+    color: var(--color-oro);
+}
+
 a {
     text-decoration: none;
+    color: var(--color-oro);
+}
+
+a:hover {
+    color: var(--color-naranja);
 }

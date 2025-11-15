@@ -2,7 +2,7 @@
 
 export default class FormularioController {
   show({ view } : HttpContext) {
-    return view.render('formulario')
+    return view.render('pages/formulario')
   }
 
   async store({ request, response } : HttpContext) {

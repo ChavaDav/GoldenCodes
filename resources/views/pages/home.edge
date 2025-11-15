@@ -3,81 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GoldenCodes</title>
-    <!-- Bootstrap CSS -->
+    <title>GoldenCodes - Gala de Premios</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="/css/app.css">
-    <style>
-        body {
-            background-color: #000000;
-            color: #FFD700; /* Amarillo dorado */
-            font-family: 'Roboto', sans-serif;
-        }
-        h1, h2, h3, h4 {
-            font-family: 'Playfair Display', serif;
-        }
-        .navbar {
-            background-color: #000000;
-        }
-        .navbar-brand, .nav-link {
-            color: #FFD700 !important;
-            font-weight: bold;
-        }
-        .nav-link:hover {
-            color: #FFA500 !important;
-        }
-        section {
-            padding: 100px 0;
-        }
-        .intro {
-            text-align: center;
-            background: linear-gradient(to bottom, #111111, #000000);
-        }
-        .quienes-somos {
-            background-color: #111111;
-        }
-        .premios {
-            background-color: #1a1a1a;
-        }
-        .card {
-            background-color: #000000;
-            border: 2px solid #FFD700;
-            color: #FFD700;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 0 20px #FFD700;
-        }
-        .card-title {
-            color: #FFD700;
-        }
-        .card-text {
-            color: #f8e473;
-        }
-        a {
-            text-decoration: none;
-        }
-    </style>
 </head>
 <body>
 
-    <!-- Navbar -->
-<nav class="navbar navbar-expand-lg fixed-top">
+    <nav class="navbar navbar-expand-lg fixed-top py-3">
     <div class="container">
-        <a class="navbar-brand" href="#">Gala de Premios</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon" style="color: #FFD700;"></span>
+        <a class="navbar-brand fs-4" href="#">
+            <i class="fa-solid fa-trophy me-2"></i> GoldenCodes
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto align-items-center">
                 <li class="nav-item"><a class="nav-link" href="#introduccion">Introducción</a></li>
                 <li class="nav-item"><a class="nav-link" href="#quienes-somos">Quiénes Somos</a></li>
                 <li class="nav-item"><a class="nav-link" href="#premios">Premios</a></li>
-                <!-- Botón destacado -->
-                <li class="nav-item ms-3">
-                    <a class="btn btn-warning text-dark fw-bold" href="votacion" style="border: 2px solid #FFD700;">Haz tu voto</a>
+                <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                    <a class="btn btn-voto px-4 py-2" href="votacion">
+                        <i class="fa-solid fa-star me-2"></i> Haz tu voto
+                    </a>
                 </li>
             </ul>
         </div>
@@ -85,57 +35,76 @@
 </nav>
 
 
-    <!-- Introducción -->
-    <section id="introduccion" class="intro">
+    <section id="introduccion" class="intro d-flex align-items-center min-vh-100">
         <div class="container">
-            <h1>Bienvenidos a la Gala de Premios</h1>
-            <p style="font-size: 1.2rem;">Una noche de elegancia, emoción y reconocimiento a lo mejor del año.</p>
-        </div>
-    </section>
-
-    <!-- Quiénes Somos -->
-    <section id="quienes-somos" class="quienes-somos">
-        <div class="container">
-            <h2 class="text-center">Quiénes Somos</h2>
-            <p class="text-center" style="max-width: 800px; margin: auto;">
-                Somos un equipo apasionado por reconocer el talento y esfuerzo de los mejores. 
-                Cada gala es un evento único lleno de glamour y distinción.
-            </p>
-        </div>
-    </section>
-
-    <!-- Premios -->
-    <section id="premios" class="premios">
-        <div class="container">
-            <h2 class="text-center mb-5">Categorías de Premios</h2>
-            <div class="row g-4">
-                <!-- Premio 1 -->
-                <div class="col-md-4">
-                    <div class="card p-3">
-                        <h4 class="card-title">Mejor Actor</h4>
-                        <p class="card-text">Reconociendo la actuación más destacada en cine o teatro.</p>
-                    </div>
-                </div>
-                <!-- Premio 2 -->
-                <div class="col-md-4">
-                    <div class="card p-3">
-                        <h4 class="card-title">Mejor Actriz</h4>
-                        <p class="card-text">Celebrando la actuación femenina más sobresaliente del año.</p>
-                    </div>
-                </div>
-                <!-- Premio 3 -->
-                <div class="col-md-4">
-                    <div class="card p-3">
-                        <h4 class="card-title">Premio Innovación</h4>
-                        <p class="card-text">Para quienes han traído creatividad y originalidad a su industria.</p>
-                    </div>
-                </div>
-                <!-- Puedes añadir más premios aquí -->
+            <div class="p-5">
+                <i class="fa-solid fa-trophy fa-bounce fa-5x mb-4" style="color: #FFD700;"></i>
+                <h1 class="display-1 fw-bold mb-4">La Gala GoldenCodes</h1>
+                <p class="lead" style="font-size: 1.5rem; font-weight: 300;">
+                    Una noche de **elegancia, distinción y reconocimiento** a lo más brillante del talento informático.
+                </p>
+                <a href="#premios" class="btn btn-voto mt-4 px-5 py-3 text-uppercase">
+                    Descubre las Categorías
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Bootstrap JS -->
+    <section id="quienes-somos" class="quienes-somos">
+        <div class="container">
+            <h2 class="text-center display-4 mb-5">Nuestra Misión</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <blockquote class="blockquote text-center p-4 border-start border-warning border-5 mx-auto">
+                        <p class="mb-0 fs-5" style="font-weight: 300;">
+                            La Delegación de Alumnos de la ETSI de Sistemas Informáticos (DA-ETSISI) es la entidad encargada de coordinar y canalizar la representación de los estudiantes en el centro. Está constituida por todos los representantes de alumnos de la ETSISI y por compañeros que, de forma voluntaria, ayudan a la realización de las tareas de delegación. Formamos parte de la Delegación de Alumnos de la Universidad Politécnica de Madrid (DA-UPM).
+                        </p>
+                        <footer class="blockquote-footer mt-3">DA-ETSISI <cite title="Source Title">Organizando la excelencia</cite></footer>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="premios" class="premios">
+        <div class="container">
+            <h2 class="text-center display-4 mb-5">🏆 Categorías de Premios 🏆</h2>
+            <div class="row g-5 justify-content-center">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card p-4 h-100 text-center">
+                        <i class="fa-solid fa-user-tie fa-3x mb-3"></i>
+                        <h4 class="card-title mt-2">Mejor Actor</h4>
+                        <p class="card-text">Reconociendo la actuación más destacada en cine o teatro.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card p-4 h-100 text-center">
+                        <i class="fa-solid fa-user-gear fa-3x mb-3"></i>
+                        <h4 class="card-title mt-2">Mejor Actriz</h4>
+                        <p class="card-text">Celebrando la actuación femenina más sobresaliente del año.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card p-4 h-100 text-center">
+                        <i class="fa-solid fa-lightbulb fa-3x mb-3"></i>
+                        <h4 class="card-title mt-2">Premio Innovación</h4>
+                        <p class="card-text">Para quienes han traído creatividad y originalidad a su industria.</p>
+                    </div>
+                </div>
+                </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-center py-4 border-top border-warning opacity-75">
+        <div class="container">
+            <p class="m-0 small">&copy; <span id="current-year"></span> GoldenCodes - Gala de Premios | Organizado por DA-ETSISI</p>
+        </div>
+    </footer>
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
