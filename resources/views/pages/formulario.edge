@@ -1,96 +1,205 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Haz tu voto - GoldenCodes</title>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="/css/app.css">
+
     <style>
-        body{
-            padding-top: 3n6px;
+        body {
+            padding-top: 36px;
+            /* corregido: antes tenía 3n6px */
         }
     </style>
 </head>
+
 <body>
-        <nav class="navbar navbar-expand-lg fixed-top py-3">
-    <div class="container">
-        <a class="navbar-brand fs-4" href="/">
-            <i class="fa-solid fa-trophy me-2"></i> GoldenCodes
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto align-items-center">
-                <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
-                    <a class="btn btn-voto px-4 py-2" href="/">
-                        <i class="fa-solid fa-arrow-left me-2"></i> Volver a la Gala
-            </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-    <nav class="navbar navbar-expand-lg py-0">
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg fixed-top py-3">
         <div class="container">
             <a class="navbar-brand fs-4" href="/">
-                
+                <i class="fa-solid fa-trophy me-2"></i> GoldenCodes
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                        <a class="btn btn-voto px-4 py-2" href="/">
+                            <i class="fa-solid fa-arrow-left me-2"></i> Volver a la Gala
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
+    <section id="votacion" class="d-flex align-items-center justify-content-center"
+        style="min-height: calc(100vh - 72px);">
 
-    <section id="votacion" class="d-flex align-items-center justify-content-center" style="min-height: calc(100vh - 72px);">
         <div class="container">
+
             <h2 class="text-center display-4 mb-5">
                 <i class="fa-solid fa-ranking-star me-2"></i> Emite tu Voto
             </h2>
+
             <div class="row justify-content-center">
                 <div class="col-lg-5 col-md-8">
+
+                    <!-- FORMULARIO ÚNICO -->
                     <form action="/votacion" method="POST" class="form-voto p-5 shadow-lg">
-                        {{-- Esto es una vista de AdonisJS o Laravel, se mantiene --}}
-                        {{ csrfField() }} 
-                        
+                        {{ csrfField() }}
+
+                        <!-- Nombre -->
                         <div class="mb-4">
                             <label for="nombre" class="form-label">Nombre</label>
-                            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Tu nombre completo" required>
+                            <input type="text" class="form-control" id="nombre" name="nombre"
+                                placeholder="Tu nombre completo" required>
                         </div>
-                        
+
+                        <hr>
+
+                        <!-- Correo -->
                         <div class="mb-4">
                             <label for="correo" class="form-label">Correo Electrónico</label>
-                            <input type="email" class="form-control" id="correo" name="correo" placeholder="tu@email.com" required>
+                            <input type="email" class="form-control" id="correo" name="correo"
+                                placeholder="tu@email.com" required>
                         </div>
-                        
-                        <div class="mb-4">
-                            <label for="eleccion" class="form-label">Elige tu Ganador</label>
-                            <select class="form-select" id="eleccion" name="eleccion" required>
-                                <option value="" disabled selected>Selecciona una Categoría y Candidato</option>
-                                <option value="opcion1">Mejor Actor: Candidato A</option>
-                                <option value="opcion2">Mejor Actriz: Candidato B</option>
-                                <option value="opcion3">Premio Innovación: Proyecto X</option>
+
+                        <hr>
+
+                        <!-- Curso -->
+                        <div id="opciones-curso" class="mb-4">
+                            <label for="curso-select">Curso:</label>
+                            <select id="curso-select" name="curso" class="form-select" required>
+                                <option value="" disabled selected>Elige un curso</option>
+                                <option class="Cursos" value="curso-1">1º</option>
+                                <option class="Cursos" value="curso-2">2º</option>
+                                <option class="Cursos" value="curso-3">3º</option>
+                                <option class="Cursos" value="curso-4">4º</option>
+                                <option class="Master" value="master">Master</option>
+                                <option value="profesor">Profesor</option>
+                                <option value="ptgas">PTGAS</option>
                             </select>
                         </div>
-                        
+
+                        <!-- Carrera -->
+                        <div id="opciones-carrera" class="mb-4" style="display: none;">
+                            <hr>
+                            <label for="carrera-select">Carrera:</label>
+                            <select id="carrera-select" name="carrera" class="form-select" required>
+                                <option value="" disabled selected>Elige una carrera</option>
+                                <option value="SI">Ingeniería de Sistema de la informacion</option>
+                                <option value="Software">Ingenieria de Software</option>
+                                <option value="Computadores">Ingenieria de Computadores</option>
+                                <option value="TSI">Tecnologías para la Sociedad de la informacion</option>
+                                <option value="CDIA">Ingenieria en Ciencia de Datos e Inteligencia Artificial</option>
+                            </select>
+                        </div>
+
+                        <div id="opciones-master" class="mb-4" style="display: none;">
+                            <hr>
+                            <label for="carrera-select">Master:</label>
+                            <select id="carrera-select" name="carrera" class="form-select" required>
+                                <option value="" disabled selected>Elige una master</option>
+                                <option value="ingenieria-sistemas">Master Desarrollo Web</option>
+                                <option value="diseño-industrial">Master de Sistemas Empotrados</option>
+                                <option value="ciencias-sociales">Master de Ciberseguridad</option>
+                                <option value="administracion">Master Nube</option>
+                            </select>
+                        </div>
+
+                        <hr>
+                        <!-- Categoria -->
+                        <div id="opciones-categoria" class="mb-4">
+                            <label for="profesor-select">Categoria:</label>
+                            <select id="profesor-select" name="profesor" class="form-select" required>
+                                <option value="" disabled selected>Elige un categoria</option>
+                                <option id="inovacion" value="juan-perez">Inovacion</option>
+                                <option id="favoritismo" value="ana-lopez">Favoritismo</option>
+                                <option id="contribucion" value="carlos-gomez">Contribucion</option>
+                            </select>
+                        </div>
+
+                        <hr>
+
+                        <!-- Profesor -->
+                        <div id="opciones-profesor" class="mb-4">
+                            <label for="profesor-select">Profesor:</label>
+                            <select id="profesor-select" name="profesor" class="form-select" required>
+                                <option value="" disabled selected>Elige un profesor</option>
+                                <option class="categoria-inovacion" value="juan-perez">Juan Pérez</option>
+                                <option class="categoria-favoritismo" value="ana-lopez">Ana López</option>
+                                <option class="categoria-contribucion" value="carlos-gomez">Carlos Gómez</option>
+                            </select>
+                        </div>
+
+                        <hr>
+
+                        <!-- Motivación -->
                         <div class="mb-4">
                             <label for="mensaje" class="form-label">Motivación del Voto (opcional)</label>
-                            <textarea class="form-control" id="mensaje" name="mensaje" rows="4" placeholder="¿Por qué elegiste este candidato?"></textarea>
+                            <textarea class="form-control" id="mensaje" name="mensaje" rows="4"
+                                placeholder="¿Por qué elegiste este candidato?"></textarea>
                         </div>
-                        
+
+                        <!-- Botón enviar -->
                         <div class="d-grid gap-2 mt-4">
                             <button type="submit" class="btn btn-voto py-3 text-uppercase">
                                 <i class="fa-solid fa-paper-plane me-2"></i> Enviar Voto
                             </button>
                         </div>
+
                         <div class="text-center mt-3">
-                             <a href="/" class="text-warning small text-decoration-none opacity-75">Cancelar y volver</a>
+                            <a href="/" class="text-warning small text-decoration-none opacity-75">
+                                Cancelar y volver
+                            </a>
                         </div>
+
                     </form>
+
                 </div>
             </div>
+
         </div>
+
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+const selectCurso = document.getElementById("curso-select");
+const divCarrera = document.getElementById("opciones-carrera");
+const divMaster = document.getElementById("opciones-master");
+
+selectCurso.addEventListener("change", function() {
+    const opcion = this.options[this.selectedIndex];
+
+    if (opcion.classList.contains("Cursos")) {
+        divCarrera.style.display = "block";
+        divMaster.style.display = "none";
+    } else if(opcion.classList.contains("Master")){
+        divMaster.style.display="block";
+        divCarrera.style.display = "none";
+    } else {
+        divCarrera.style.display = "none";
+        divMaster.style.display = "none";
+    }
+});
+</script>
+
+
 </body>
+
 </html>
