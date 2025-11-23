@@ -1,6 +1,7 @@
 // app/controllers/users_controller.ts
 import User from '#models/user'
 import type { HttpContext } from '@adonisjs/core/http'
+import Participante from '#models/participante'
 
 export default class UsersController {
 
@@ -11,6 +12,13 @@ export default class UsersController {
     return view.render('pages/usersShow', {
       usersList: allUsers
     })
+  }
+
+  public async myVote({ view, auth }: HttpContext) {
+    const user = await auth.getUserOrFail()
+    await user.load('votoParticipante')
+
+    return view.render('pages/vote_detail', { user })
   }
 
   public async check({ view }: HttpContext) {
@@ -36,5 +44,27 @@ export default class UsersController {
     }
 
     return view.render('pages/vote_detail', { user })
+  }
+
+  public async checkParticipant({ view }: HttpContext) {
+    return view.render('pages/check_participant')
+  }
+
+  public async findParticipant({ request, response, session }: HttpContext) {
+    const participantId = request.input('participantId')
+    const participante = await Participante.find(participantId)
+
+    if (!participante) {
+      session.flash('error', 'No se encontró un participante con ese ID.')
+      return response.redirect().back()
+    }
+
+    return response.redirect(`/consultar-participante/${participante.id}`)
+  }
+
+  public async showParticipant({ params, view }: HttpContext) {
+    const participante = await Participante.find(params.id)
+
+    return view.render('pages/participant_detail', { participante })
   }
 }

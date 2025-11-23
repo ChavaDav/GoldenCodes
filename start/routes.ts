@@ -28,6 +28,7 @@ router.post('/logout', [() => import('#controllers/auth_controller'), 'logout'])
 router.group(() => {
     router.get('/votacion', [() => import('#controllers/formulario_controller'), 'show'])
     router.post('/votacion', [() => import('#controllers/formulario_controller'), 'store'])
+    router.get('/mi-voto', [() => import('#controllers/users_controller'), 'myVote'])
 }).use(middleware.auth())
 
 // Admin protected routes
@@ -35,4 +36,8 @@ router.group(() => {
     router.get('/consultar-voto', [() => import('#controllers/users_controller'), 'check'])
     router.post('/consultar-voto', [() => import('#controllers/users_controller'), 'find'])
     router.get('/consultar-voto/:id', [() => import('#controllers/users_controller'), 'show'])
+
+    router.get('/consultar-participante', [() => import('#controllers/users_controller'), 'checkParticipant'])
+    router.post('/consultar-participante', [() => import('#controllers/users_controller'), 'findParticipant'])
+    router.get('/consultar-participante/:id', [() => import('#controllers/users_controller'), 'showParticipant'])
 }).use(middleware.admin())

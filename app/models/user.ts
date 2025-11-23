@@ -19,9 +19,6 @@ export default class User extends BaseModel {
   declare nombre: string | null
 
   @column()
-  declare categoria: string | null
-
-  @column()
   declare email: string | null
 
   @column({ serializeAs: null })
