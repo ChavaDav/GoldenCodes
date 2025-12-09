@@ -20,6 +20,8 @@ router.group(() => {
     router.post('/register', [() => import('#controllers/auth_controller'), 'register'])
     router.get('/login', [() => import('#controllers/auth_controller'), 'showLogin'])
     router.post('/login', [() => import('#controllers/auth_controller'), 'login'])
+    router.get('/auth/oidc/redirect', [() => import('#controllers/auth_controller'), 'oidcRedirect'])
+    router.get('/auth/oidc/callback', [() => import('#controllers/auth_controller'), 'oidcCallback'])
 }).use(middleware.guest())
 
 router.post('/logout', [() => import('#controllers/auth_controller'), 'logout']).use(middleware.auth())

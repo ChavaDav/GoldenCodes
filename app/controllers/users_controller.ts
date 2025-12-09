@@ -5,7 +5,7 @@ import Participante from '#models/participante'
 
 export default class UsersController {
 
-  public async index({ view }) {
+  public async index({ view }: HttpContext) {
     const allUsers = await User.all()
 
     // 2. Pasar los datos a una plantilla de Edge
